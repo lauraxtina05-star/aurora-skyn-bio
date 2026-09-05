@@ -95,12 +95,52 @@ export default function App() {
   const { ref: featuredRef, className: featuredRevealClass } = useReveal<HTMLElement>();
   const { ref: menuRef, className: menuRevealClass } = useReveal<HTMLElement>();
 
+  // MailerLite injects its own <style> block scoped by an auto-generated
+  // #mlb2-... ID with !important rules — that beats any class-based CSS
+  // override regardless of specificity. Inline !important styles are the
+  // one thing that still outranks it, so brand the submit button and
+  // fields this way once the vendor form actually renders (it injects
+  // asynchronously, hence the MutationObserver rather than a single pass).
+  useEffect(() => {
+    const container = document.querySelector('.ml-embedded');
+    if (!container) return;
+    function applyBrand() {
+      const button = container!.querySelector<HTMLElement>('button[type="submit"], input[type="submit"]');
+      if (button) {
+        button.style.setProperty('background-color', 'var(--berry)', 'important');
+        button.style.setProperty('border-color', 'var(--berry)', 'important');
+        button.style.setProperty('font-family', 'var(--sans)', 'important');
+        button.style.setProperty('border-radius', '4px', 'important');
+        if (!button.dataset.brandedHover) {
+          button.dataset.brandedHover = 'true';
+          button.addEventListener('mouseenter', () => button.style.setProperty('background-color', 'var(--coral)', 'important'));
+          button.addEventListener('mouseleave', () => button.style.setProperty('background-color', 'var(--berry)', 'important'));
+        }
+      }
+      container!.querySelectorAll<HTMLElement>('input[type="email"], input[type="text"]').forEach((field) => {
+        field.style.setProperty('border-color', 'rgba(28, 42, 74, 0.3)', 'important');
+        field.style.setProperty('border-radius', '4px', 'important');
+        field.style.setProperty('font-family', 'var(--sans)', 'important');
+      });
+    }
+    applyBrand();
+    const observer = new MutationObserver(applyBrand);
+    observer.observe(container, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="bio">
       <MailerLite />
 
       <header className="bio-hero">
-        <div className="bio-hero-image">
+        <a
+          className="bio-hero-image"
+          href={links.mainSite}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit the full Aurora Skyn website"
+        >
           <img
             src="/images/jasmine-bio-hero-gold.jpg"
             alt="Jasmine, Aurora Skyn's esthetician, in a gold outfit against a large tree at golden hour"
@@ -109,10 +149,19 @@ export default function App() {
             loading="eager"
             fetchPriority="high"
           />
-        </div>
+        </a>
         <div ref={heroRef} className={`bio-brand ${heroRevealClass}`}>
-          <img className="bio-logo" src="/images/logo-dark.png" alt={brand.name} width={280} height={157} />
+          <a
+            className="bio-logo-link"
+            href={links.mainSite}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Aurora Skyn — visit the full website"
+          >
+            <img className="bio-logo" src="/images/logo-dark.png" alt={brand.name} width={280} height={157} />
+          </a>
           <p className="bio-tagline">{brand.tagline}</p>
+          <p className="bio-hero-lede">{brand.heroLede}</p>
         </div>
       </header>
 
@@ -127,7 +176,7 @@ export default function App() {
           />
         </div>
         <div className="bio-featured-copy">
-          <p className="eyebrow gold">{featured.eyebrow}</p>
+          <p className="eyebrow purple">{featured.eyebrow}</p>
           <h2 id="featured-title">{featured.title}</h2>
           <p className="bio-featured-lede">{featured.copy}</p>
           <p className="bio-featured-meta">
@@ -190,7 +239,9 @@ export default function App() {
                       universal script — which scans for .ml-embedded once on load —
                       can find and initialize it; only visibility is toggled. */}
                   <div className={`bio-subscribe${subscribeOpen ? '' : ' bio-subscribe--collapsed'}`}>
-                    <p>{mailerlite.message}</p>
+                    <p className="bio-subscribe-heading">{mailerlite.heading}</p>
+                    <p className="bio-subscribe-message bio-subscribe-message--full">{mailerlite.message}</p>
+                    <p className="bio-subscribe-message bio-subscribe-message--short">{mailerlite.shortMessage}</p>
                     <div className="ml-embedded" data-form={mailerlite.formId} />
                   </div>
                 </li>
@@ -239,14 +290,14 @@ export default function App() {
         open={virtualOpen}
         onClose={closeVirtual}
         title="Book Your Virtual Skyn Experience"
-        subtitle="A 60-minute private virtual session, plus everything Jasmine reviews before you meet."
+        subtitle="A 60-minute private virtual session, plus everything I review before we meet."
         calendlyUrl={withCalendlyAccent(links.virtualCalendly)}
       />
       <CalendlyModal
         open={discoveryOpen}
         onClose={closeDiscovery}
         title="Book Your Discovery Call"
-        subtitle="A complimentary 15-minute call to help you decide where to begin."
+        subtitle="A complimentary 15-minute call so I can help you decide where to begin."
         calendlyUrl={withCalendlyAccent(links.discoveryCalendly)}
       />
     </div>

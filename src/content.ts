@@ -2,11 +2,16 @@
  * Everything editable on the bio page lives here. To change what shows up,
  * what it says, or what order it appears in, edit this file only — nothing
  * else in `src/` should need to change for a copy/link/ordering update.
+ *
+ * Voice: first-person, as Jasmine speaking directly to the visitor ("I help
+ * you...", "Come see me...") — not third-person brand copy ("Jasmine
+ * helps...", "Aurora Skyn provides..."). Keep new copy in that voice.
  */
 
 export const brand = {
   name: 'Aurora Skyn',
   tagline: 'Skin health, beyond the surface.',
+  heroLede: 'I help you understand what your skyn is asking for, so you can stop guessing and start making choices that actually fit you.',
 };
 
 export const links = {
@@ -36,13 +41,17 @@ export function withCalendlyAccent(url: string) {
 export const mailerlite = {
   accountId: '2614510',
   formId: 'ylJLrW',
-  message: 'Learn your skyn before you buy another product.',
+  heading: 'Learn Your Skyn',
+  message: 'Want to understand your skyn a little better? I’ll send you skincare education, practical guidance, and updates from Aurora Skyn.',
+  // Shown instead of `message` at very narrow widths — see the
+  // `.bio-subscribe-message--short` / `--full` split in styles/global.css.
+  shortMessage: 'I’ll send you skincare education, practical guidance, and updates from Aurora Skyn.',
 };
 
 export const featured = {
-  eyebrow: 'The priority experience',
+  eyebrow: 'Featured experience',
   title: 'The Virtual Skyn Experience',
-  copy: 'A private virtual skincare experience designed to help you understand what your skyn is asking for.',
+  copy: 'A private virtual skincare experience where I help you understand what your skyn is asking for, look at what may have changed, and give you clear next steps you can actually follow.',
   duration: '60 minutes',
   price: '$125',
   cta: 'Book Virtual Skyn',
@@ -52,7 +61,7 @@ export const featured = {
 // Skyn or in-spa is the right fit, not a second competing offer. Keep it
 // visually smaller/muted relative to `featured` above.
 export const discovery = {
-  copy: 'Not sure where to begin? Book a complimentary 15-minute call and Jasmine can help you decide which experience fits best.',
+  copy: 'Not sure where to begin? Book a complimentary 15-minute call and I’ll help you figure out whether virtual or in-spa support makes the most sense for you.',
   cta: 'Book a Discovery Call',
 };
 
@@ -72,20 +81,20 @@ export const menu: MenuItem[] = [
   {
     number: '01',
     label: 'Book In-Spa',
-    description: 'Personalized in-spa skincare experiences.',
+    description: 'Come see me in person for a personalized skincare experience in Pompano Beach.',
     action: 'in-spa',
   },
   {
     number: '02',
     label: 'Shop Aurora Skyn',
-    description: 'Explore Jasmine’s skincare products.',
+    description: 'Explore the skincare products I use and recommend.',
     action: 'link',
     href: links.shop,
   },
   {
     number: '03',
     label: 'Join The Skyn Collective',
-    description: 'Connect with the free Aurora Skyn community.',
+    description: 'Join my free community for skincare education, conversation, and support.',
     action: 'link',
     href: links.skynCollective,
     pendingLabel: 'Coming soon',
@@ -93,13 +102,13 @@ export const menu: MenuItem[] = [
   {
     number: '04',
     label: 'Subscribe for Skyn Education',
-    description: 'Learn your skyn before you buy another product.',
+    description: 'Get skincare education, tips, and updates from me directly.',
     action: 'subscribe',
   },
   {
     number: '05',
     label: 'Explore Aurora Skyn',
-    description: 'Visit the full Aurora Skyn experience.',
+    description: 'Want to learn more about me, my approach, and everything I offer? Visit the full site.',
     action: 'link',
     href: links.mainSite,
   },
