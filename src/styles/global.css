@@ -100,6 +100,16 @@ button { background: none; border: 0; padding: 0; cursor: pointer; color: inheri
 .bio-cta .arrow-icon { transition: transform 0.2s ease; }
 .bio-cta:hover .arrow-icon { transform: translateX(4px); }
 
+/* ---------- Discovery Call: a quiet secondary nudge, not a second offer ----------
+   Deliberately unfilled/muted — no color fill, smaller type, no eyebrow — so
+   it never competes with .bio-cta above it. */
+.bio-discovery { padding: 26px 24px 6px; text-align: center; }
+.bio-discovery-copy { margin: 0 0 14px; font-size: 0.86rem; line-height: 1.55; color: #5f5a52; max-width: 38ch; margin-left: auto; margin-right: auto; }
+.bio-discovery-cta { display: inline-flex; align-items: center; gap: 8px; font: 600 0.74rem/1 var(--sans); text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); border-bottom: 1px solid rgba(28, 42, 74, 0.4); padding-bottom: 5px; transition: color 0.2s ease, border-color 0.2s ease; }
+.bio-discovery-cta:hover, .bio-discovery-cta:focus-visible { color: var(--berry); border-color: var(--berry); }
+.bio-discovery-cta .arrow-icon { transition: transform 0.2s ease; }
+.bio-discovery-cta:hover .arrow-icon { transform: translateX(4px); }
+
 /* ---------- Quick menu ---------- */
 .bio-menu { padding: 6px 20px 4px; }
 .bio-menu ul { list-style: none; margin: 0; padding: 0; }
@@ -159,7 +169,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; color: inheri
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal-io { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .bio-cta, .bio-menu-row > a, .bio-menu-row > button, .arrow-icon, .bio-menu-indicator svg, .bio-featured-photo img { transition: none !important; }
+  .bio-cta, .bio-discovery-cta, .bio-menu-row > a, .bio-menu-row > button, .arrow-icon, .bio-menu-indicator svg, .bio-featured-photo img { transition: none !important; }
   .bio-featured-photo:hover img { transform: none; }
 }
 

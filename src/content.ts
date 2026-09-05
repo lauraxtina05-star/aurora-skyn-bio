@@ -48,6 +48,14 @@ export const featured = {
   cta: 'Book Virtual Skyn',
 };
 
+// Deliberately quiet — a secondary nudge for visitors unsure whether Virtual
+// Skyn or in-spa is the right fit, not a second competing offer. Keep it
+// visually smaller/muted relative to `featured` above.
+export const discovery = {
+  copy: 'Not sure where to begin? Book a complimentary 15-minute call and Jasmine can help you decide which experience fits best.',
+  cta: 'Book a Discovery Call',
+};
+
 export type MenuItem = {
   number: string;
   label: string;

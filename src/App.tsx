@@ -4,7 +4,7 @@ import CalendlyModal from '@/components/CalendlyModal';
 import MailerLite from '@/components/MailerLite';
 import { ArrowIcon, ChevronIcon } from '@/components/icons';
 import { useReveal } from '@/hooks/useReveal';
-import { brand, featured, links, mailerlite, menu, withCalendlyAccent } from '@/content';
+import { brand, discovery, featured, links, mailerlite, menu, withCalendlyAccent } from '@/content';
 
 const bookingLinks: BookingLinks = {
   inSpa: links.inSpaFresha,
@@ -77,6 +77,10 @@ export default function App() {
     if (trigger && document.contains(trigger)) setTimeout(() => trigger.focus(), 0);
   }, []);
 
+  const openDiscovery = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+    discoveryTriggerRef.current = event.currentTarget;
+    setDiscoveryOpen(true);
+  }, []);
   const openDiscoveryFromBookingModal = useCallback(() => {
     discoveryTriggerRef.current = bookingTriggerRef.current;
     setDiscoveryOpen(true);
@@ -133,6 +137,13 @@ export default function App() {
             {featured.cta} <ArrowIcon />
           </button>
         </div>
+      </section>
+
+      <section className="bio-discovery" aria-label="Not sure where to begin?">
+        <p className="bio-discovery-copy">{discovery.copy}</p>
+        <button type="button" className="bio-discovery-cta" onClick={openDiscovery}>
+          {discovery.cta} <ArrowIcon />
+        </button>
       </section>
 
       <nav ref={menuRef} className={`bio-menu ${menuRevealClass}`} aria-label="Quick links">
