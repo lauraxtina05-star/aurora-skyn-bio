@@ -1,5 +1,14 @@
 node_modules
 dist
 .wrangler
+
+# Secrets / local environment — never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.dev.vars
+
 .DS_Store
 *.local
