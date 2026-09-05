@@ -1,0 +1,244 @@
+/* ============================================================
+   Brand tokens — same values as the main Aurora Skyn site's
+   app/globals.css :root block. Keep these two in sync.
+   ============================================================ */
+:root {
+  --navy: #1c2a4a;
+  --ivory: #fff8ef;
+  --sand: #f2dfd2;
+  --sky: #7fa2c9;
+  --gold: #c9a34e;
+  --coral: #e4572e;
+  --berry: #c21875;
+  --purple: #5b2a6e;
+  --ink: #17213b;
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--ivory); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+img { display: block; width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+h1, h2, h3, p { margin-top: 0; }
+h2 { font-family: var(--serif); font-weight: 500; line-height: 1; letter-spacing: -0.02em; }
+button { background: none; border: 0; padding: 0; cursor: pointer; color: inherit; text-align: left; }
+
+.eyebrow { font: 600 0.72rem/1 var(--sans); text-transform: uppercase; letter-spacing: 0.16em; }
+.eyebrow.gold { color: var(--gold); }
+
+:focus-visible { outline: 2px solid var(--berry); outline-offset: 3px; border-radius: 2px; }
+
+/* Constrain rather than stretch on large screens — mobile is the real page. */
+.bio { max-width: 460px; margin: 0 auto; overflow-x: clip; }
+@media (min-width: 900px) {
+  .bio { max-width: 480px; box-shadow: 0 0 0 1px rgba(28, 42, 74, 0.06); }
+  body { background: var(--sand); }
+  .bio { background: var(--ivory); min-height: 100vh; }
+}
+
+/* ---------- Hero ---------- */
+.bio-hero-image { position: relative; width: 100%; aspect-ratio: 4 / 5; max-height: 62vh; overflow: hidden; background: var(--navy); }
+.bio-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+
+.bio-brand {
+  position: relative;
+  z-index: 1;
+  margin: -34px 20px 0;
+  padding: 26px 24px 24px;
+  background: var(--ivory);
+  border-top: 2px solid var(--gold);
+  box-shadow: 0 20px 40px -24px rgba(16, 24, 45, 0.4);
+  text-align: center;
+}
+.bio-logo { width: clamp(150px, 42vw, 190px); height: auto; margin: 0 auto; }
+.bio-tagline { margin: 14px 0 0; font: 600 0.76rem/1.5 var(--sans); text-transform: uppercase; letter-spacing: 0.14em; color: var(--navy); }
+
+/* ---------- Featured: Virtual Skyn Experience ---------- */
+.bio-featured {
+  position: relative;
+  margin-top: 30px;
+  padding: 40px 24px 44px;
+  background: linear-gradient(180deg, var(--sky) 0%, #a9c4de 100%);
+  color: var(--navy);
+}
+.bio-featured-photo {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 7px solid var(--ivory);
+  box-shadow: 0 24px 50px -20px rgba(16, 24, 45, 0.45);
+  margin-bottom: 26px;
+}
+.bio-featured-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%; transition: transform 0.6s ease; }
+.bio-featured-photo:hover img { transform: scale(1.04); }
+.bio-featured h2 { font-size: clamp(2.1rem, 8vw, 2.55rem); line-height: 1.05; margin: 12px 0 14px; }
+.bio-featured-lede { font-size: 0.96rem; line-height: 1.55; margin: 0 0 18px; max-width: 42ch; }
+.bio-featured-meta { font: 500 1.05rem/1 var(--serif); margin: 0 0 22px; }
+.bio-featured-meta span { color: var(--gold); margin: 0 8px; }
+
+.bio-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+  min-height: 56px;
+  padding: 16px 26px;
+  background: var(--berry);
+  color: #fff;
+  font: 600 0.8rem/1 var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.bio-cta:hover, .bio-cta:focus-visible { background: var(--coral); transform: translateY(-2px); }
+.bio-cta .arrow-icon { transition: transform 0.2s ease; }
+.bio-cta:hover .arrow-icon { transform: translateX(4px); }
+
+/* ---------- Quick menu ---------- */
+.bio-menu { padding: 6px 20px 4px; }
+.bio-menu ul { list-style: none; margin: 0; padding: 0; }
+.bio-menu-row { border-top: 1px solid rgba(28, 42, 74, 0.16); }
+.bio-menu-row:last-child { border-bottom: 1px solid rgba(28, 42, 74, 0.16); }
+.bio-menu-row > a,
+.bio-menu-row > button,
+.bio-menu-row > span {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 18px 2px;
+  transition: padding-left 0.25s ease;
+}
+.bio-menu-row > a:hover, .bio-menu-row > button:hover { padding-left: 8px; }
+.bio-menu-number { font: 600 0.72rem/1 var(--sans); letter-spacing: 0.1em; color: var(--gold); }
+.bio-menu-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.bio-menu-text strong { font: 500 1.14rem/1.15 var(--serif); color: var(--navy); }
+.bio-menu-row > a:hover .bio-menu-text strong,
+.bio-menu-row > button:hover .bio-menu-text strong { color: var(--berry); }
+.bio-menu-text span { font-size: 0.82rem; color: #5f5a52; }
+.bio-menu-indicator { display: flex; align-items: center; justify-content: flex-end; color: var(--navy); font-size: 1.1rem; }
+.bio-menu-indicator svg { transition: transform 0.2s ease; }
+.bio-menu-indicator.is-open svg { transform: rotate(90deg); }
+.bio-menu-row > a:hover .arrow-icon, .bio-menu-row > button:hover .arrow-icon { transform: translateX(4px); }
+.bio-menu-row--pending .bio-menu-indicator { font: 600 0.66rem/1 var(--sans); text-transform: uppercase; letter-spacing: 0.08em; color: #a39d90; }
+.bio-menu-row--pending > span { opacity: 0.72; cursor: default; }
+.bio-menu-row--pending .bio-menu-text strong { color: var(--navy); }
+
+.bio-subscribe { padding: 0 2px 22px; }
+.bio-subscribe--collapsed { display: none; }
+.bio-subscribe > p { margin: 0 0 14px; font-size: 0.86rem; color: #5f5a52; max-width: 40ch; }
+.bio-subscribe .ml-embedded { max-width: 100%; }
+.bio-subscribe .ml-embedded :where(form, input, button, div, section) { max-width: 100%; }
+
+/* ---------- Footer ---------- */
+.bio-footer {
+  margin-top: 12px;
+  padding: 26px 20px 34px;
+  border-top: 1px solid rgba(28, 42, 74, 0.16);
+  text-align: center;
+}
+.bio-footer-brand { margin: 0 0 8px; font: 500 0.95rem/1 var(--serif); letter-spacing: 0.04em; color: var(--navy); }
+.bio-footer-links { margin: 0 0 8px; display: flex; justify-content: center; gap: 18px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.bio-footer-links a { border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color 0.2s ease, color 0.2s ease; }
+.bio-footer-links a:hover { color: var(--berry); border-color: var(--berry); }
+.bio-footer-credit { margin: 0; font-size: 0.7rem; color: #8a857c; }
+.bio-footer-credit a { border-bottom: 1px solid rgba(28, 42, 74, 0.3); transition: color 0.2s ease, border-color 0.2s ease; }
+.bio-footer-credit a:hover { color: var(--berry); border-color: var(--berry); }
+
+/* ---------- Reveal + reduced motion ---------- */
+.reveal-io { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-io.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-io { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .bio-cta, .bio-menu-row > a, .bio-menu-row > button, .arrow-icon, .bio-menu-indicator svg, .bio-featured-photo img { transition: none !important; }
+  .bio-featured-photo:hover img { transform: none; }
+}
+
+/* ---------- Larger phones / small tablets ---------- */
+@media (min-width: 400px) {
+  .bio-brand { margin-left: 26px; margin-right: 26px; }
+  .bio-featured, .bio-menu { padding-left: 28px; padding-right: 28px; }
+  .bio-footer { padding-left: 28px; padding-right: 28px; }
+}
+
+/* ============================================================
+   Booking / Calendly modal — ported verbatim from the main
+   Aurora Skyn site's app/globals.css. Includes the [open]
+   attribute-selector fix for dialog.booking-modal.calendly-modal
+   (without it, the unconditional display:flex there outscores the
+   browser's own dialog:not([open]){display:none}, leaving the
+   Calendly dialog permanently rendered even while closed — a real
+   bug that shipped and was fixed on the main site; do not drop the
+   [open] scoping if this block is ever edited).
+   ============================================================ */
+dialog.booking-modal { position: fixed; inset: 0; margin: auto; width: min(560px, calc(100vw - 32px)); max-width: 560px; max-height: 88dvh; overflow-y: auto; -webkit-overflow-scrolling: touch; border: 0; padding: clamp(30px, 5vw, 52px); background: var(--ivory); color: var(--ink); border-radius: 10px; box-shadow: 0 40px 120px -30px rgba(16, 24, 45, 0.55); }
+dialog.booking-modal::backdrop { background: rgba(16, 24, 45, 0.66); }
+.booking-close { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 0; background: transparent; color: var(--navy); font-size: 1.7rem; line-height: 1; cursor: pointer; border-radius: 50%; transition: background-color 0.2s ease, color 0.2s ease; }
+.booking-close:hover, .booking-close:focus-visible { background: var(--berry); color: #fff; }
+.booking-head { max-width: 40ch; margin: 0 40px 4px 0; }
+.booking-head .eyebrow { margin-bottom: 14px; }
+.booking-head h2 { font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.06; margin: 0 0 14px; }
+.booking-head > p { margin: 0; font-size: 0.95rem; line-height: 1.6; color: #5f5a52; }
+.booking-list { list-style: none; margin: 24px 0 0; padding: 0; }
+.booking-row { display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 22px 0; border-top: 1px solid rgba(28, 42, 74, 0.16); }
+.booking-row:first-child { border-top: 0; }
+.booking-row-text { min-width: 0; }
+.booking-row-label { display: block; font: 600 0.62rem/1 var(--sans); text-transform: uppercase; letter-spacing: 0.16em; color: var(--coral); margin-bottom: 8px; }
+.booking-row h3 { font-size: 1.45rem; line-height: 1.12; margin: 0 0 5px; font-family: var(--serif); font-weight: 500; }
+.booking-row-text p { margin: 0; font-size: 0.88rem; line-height: 1.5; color: #5f5a52; }
+.booking-row-cta { flex: none; display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; font: 600 0.72rem/1 var(--sans); text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); border-bottom: 1px solid var(--navy); padding-bottom: 6px; background: none; border-left: 0; border-right: 0; border-top: 0; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease; }
+.booking-row-cta:hover, .booking-row-cta:focus-visible { color: var(--berry); border-color: var(--berry); }
+.booking-row--specialty .booking-row-label { color: var(--purple); }
+.booking-row--secondary { opacity: 0.8; }
+.booking-row--secondary .booking-row-label { color: var(--gold); }
+.booking-row--secondary h3 { font-size: 1.18rem; }
+.booking-row-pending { flex: none; font: 600 0.68rem/1 var(--sans); text-transform: uppercase; letter-spacing: 0.08em; color: #a39d90; white-space: nowrap; }
+.booking-full-menu { display: inline-flex; align-items: center; gap: 8px; margin: 22px 0 0; font: 600 0.72rem/1 var(--sans); text-transform: uppercase; letter-spacing: 0.1em; color: #8a857c; border-bottom: 1px solid rgba(28, 42, 74, 0.3); padding-bottom: 5px; transition: color 0.2s ease, border-color 0.2s ease; }
+.booking-full-menu:hover, .booking-full-menu:focus-visible { color: var(--berry); border-color: var(--berry); }
+.booking-note { margin: 22px 0 0; font-size: 0.78rem; line-height: 1.55; color: #7d786f; max-width: 44ch; }
+.booking-discovery { margin: 26px 0 0; padding: 24px clamp(20px, 4vw, 28px); background: linear-gradient(135deg, #dce7f2, var(--sand)); border-radius: 8px; }
+.booking-discovery .eyebrow { margin-bottom: 10px; }
+.booking-discovery-lede { font-family: var(--serif); font-size: 1.32rem; line-height: 1.2; margin: 0 0 10px; color: var(--navy); }
+.booking-discovery-note { margin: 0 0 16px; font-size: 0.84rem; line-height: 1.55; color: #4c5666; }
+.booking-discovery-cta { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; }
+.eyebrow.navy { color: var(--navy); }
+
+@media (max-width: 560px) {
+  dialog.booking-modal { width: 100%; max-width: 100%; max-height: 92dvh; margin: 0; inset: auto 0 0 0; border-radius: 20px 20px 0 0; padding: 34px 22px 30px; }
+  .booking-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  dialog.booking-modal[open] { animation: booking-rise 0.3s ease both; }
+  @keyframes booking-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+}
+
+dialog.booking-modal.calendly-modal[open] { display: flex; flex-direction: column; height: min(92dvh, 900px); max-height: min(92dvh, 900px); overflow: hidden; }
+.calendly-head { flex: 0 0 auto; margin-bottom: 18px; }
+.calendly-widget { flex: 1 1 auto; min-height: 0; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.calendly-widget iframe { width: 100% !important; height: 100% !important; min-height: 100% !important; border: 0; display: block; }
+
+@media (max-width: 768px) {
+  dialog.booking-modal.calendly-modal[open] {
+    width: 100%;
+    max-width: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    margin: 0;
+    inset: auto 0 0 0;
+    border-radius: 24px 24px 0 0;
+    padding: calc(20px + env(safe-area-inset-top)) 18px calc(14px + env(safe-area-inset-bottom));
+  }
+  .calendly-modal .booking-close { top: calc(12px + env(safe-area-inset-top)); }
+}
+
+/* Arrow icon nudge, shared by every button/link that uses <ArrowIcon />. */
+.arrow-icon { transition: transform 0.2s ease; }
