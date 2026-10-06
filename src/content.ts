@@ -24,6 +24,7 @@ export const links = {
   teethWhiteningFresha: 'https://www.fresha.com/book-now/aurora-skyn-hmifnwoh/services?lid=1297352&eid=2998182&oiid=sv%3A18176254&share=true&pId=1231654',
   teethGemsFresha: 'https://www.fresha.com/book-now/aurora-skyn-hmifnwoh/services?lid=1297352&eid=2998182&oiid=sv%3A18175995&share=true&pId=1231654',
   shop: 'https://www.fresha.com/store/aurora-skyn-store-mqm8e2hv?share=true&pId=1231654',
+  bambuEarthAffiliate: 'https://bambuearth.com/discount/AURORA20',
   mainSite: 'https://auroraskynholistics.com',
   instagram: 'https://www.instagram.com/auroraskyn',
   onyxCreatrix: 'https://onyxcreatrix.com/',
@@ -50,11 +51,12 @@ export const mailerlite = {
 
 export const featured = {
   eyebrow: 'Featured experience',
-  title: 'The Virtual Skyn Experience',
-  copy: 'A private virtual skincare experience where I help you understand what your skyn is asking for, look at what may have changed, and give you clear next steps you can actually follow.',
-  duration: '60 minutes',
+  title: 'Root to Radiance',
+  descriptor: 'A Private Virtual Skyn Session',
+  copy: 'For when you’re tired of guessing what your skyn needs. Before we meet, I review your questionnaire, bare-skyn photos, current routine, and products so our private session can go deeper and leave you with clear, personalized next steps.',
+  duration: '60 minutes · Virtual',
   price: '$125',
-  cta: 'Book Virtual Skyn',
+  cta: 'Book Root to Radiance',
 };
 
 // Deliberately quiet — a secondary nudge for visitors unsure whether Virtual
@@ -93,6 +95,13 @@ export const menu: MenuItem[] = [
   },
   {
     number: '03',
+    label: 'Shop Bambu Earth',
+    description: 'Receive 20% off your Bambu Earth favorites through my partner link.',
+    action: 'link',
+    href: links.bambuEarthAffiliate,
+  },
+  {
+    number: '04',
     label: 'Join The Skyn Collective',
     description: 'Join my free community for skincare education, conversation, and support.',
     action: 'link',
@@ -100,13 +109,13 @@ export const menu: MenuItem[] = [
     pendingLabel: 'Coming soon',
   },
   {
-    number: '04',
+    number: '05',
     label: 'Subscribe for Skyn Education',
     description: 'Get skincare education, tips, and updates from me directly.',
     action: 'subscribe',
   },
   {
-    number: '05',
+    number: '06',
     label: 'Explore Aurora Skyn',
     description: 'Want to learn more about me, my approach, and everything I offer? Visit the full site.',
     action: 'link',

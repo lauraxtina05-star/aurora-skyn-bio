@@ -178,6 +178,7 @@ export default function App() {
         <div className="bio-featured-copy">
           <p className="eyebrow purple">{featured.eyebrow}</p>
           <h2 id="featured-title">{featured.title}</h2>
+          <p className="bio-featured-descriptor">{featured.descriptor}</p>
           <p className="bio-featured-lede">{featured.copy}</p>
           <p className="bio-featured-meta">
             {featured.duration} <span aria-hidden="true">·</span> {featured.price}
@@ -289,8 +290,8 @@ export default function App() {
       <CalendlyModal
         open={virtualOpen}
         onClose={closeVirtual}
-        title="Book Your Virtual Skyn Experience"
-        subtitle="A 60-minute private virtual session, plus everything I review before we meet."
+        title="Book Root to Radiance"
+        subtitle="A private 60-minute virtual skyn session."
         calendlyUrl={withCalendlyAccent(links.virtualCalendly)}
       />
       <CalendlyModal
