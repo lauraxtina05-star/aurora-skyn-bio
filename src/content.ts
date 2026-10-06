@@ -59,8 +59,8 @@ export const featured = {
   cta: 'Book Root to Radiance',
 };
 
-// Deliberately quiet — a secondary nudge for visitors unsure whether Virtual
-// Skyn or in-spa is the right fit, not a second competing offer. Keep it
+// Deliberately quiet — a secondary nudge for visitors unsure whether Root to Radiance
+// or in-spa is the right fit, not a second competing offer. Keep it
 // visually smaller/muted relative to `featured` above.
 export const discovery = {
   copy: 'Not sure where to begin? Book a complimentary 15-minute call and I’ll help you figure out whether virtual or in-spa support makes the most sense for you.',
