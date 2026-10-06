@@ -286,3 +286,5 @@ dialog.booking-modal.calendly-modal[open] { display: flex; flex-direction: colum
 
 /* Arrow icon nudge, shared by every button/link that uses <ArrowIcon />. */
 .arrow-icon { transition: transform 0.2s ease; }
+
+.bio-google-reviews { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 28px; padding: 20px 24px 32px; }

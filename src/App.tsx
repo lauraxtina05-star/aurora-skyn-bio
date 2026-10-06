@@ -268,6 +268,11 @@ export default function App() {
         </ul>
       </nav>
 
+      <nav className="bio-google-reviews" aria-label="Google reviews">
+        <a className="bio-discovery-cta" href={links.googleReviews} target="_blank" rel="noopener noreferrer">Read Google Reviews <ArrowIcon /></a>
+        <a className="bio-discovery-cta" href={links.googleReviews} target="_blank" rel="noopener noreferrer">Leave a Google Review <ArrowIcon /></a>
+      </nav>
+
       <footer className="bio-footer">
         <p className="bio-footer-brand">{brand.name}</p>
         <p className="bio-footer-links">

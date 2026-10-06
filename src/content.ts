@@ -25,6 +25,7 @@ export const links = {
   teethGemsFresha: 'https://www.fresha.com/book-now/aurora-skyn-hmifnwoh/services?lid=1297352&eid=2998182&oiid=sv%3A18175995&share=true&pId=1231654',
   shop: 'https://www.fresha.com/store/aurora-skyn-store-mqm8e2hv?share=true&pId=1231654',
   bambuEarthAffiliate: 'https://bambuearth.com/discount/AURORA20',
+  googleReviews: 'https://maps.app.goo.gl/yQdoh4L78U7hGsfC8?g_st=ic',
   mainSite: 'https://auroraskynholistics.com',
   instagram: 'https://www.instagram.com/auroraskyn',
   onyxCreatrix: 'https://onyxcreatrix.com/',
