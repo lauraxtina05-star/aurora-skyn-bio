@@ -93,7 +93,7 @@ export default function BookingModal({ open, onClose, onOpenDiscovery, links }: 
     {
       label: 'Specialty',
       title: 'Red-Eye Recovery Facial',
-      meta: 'Created with flight attendants, frequent flyers, and travel-stressed skyn in mind.',
+      meta: 'Created with flight attendants, frequent flyers, and travel-stressed skin in mind.',
       href: links.redEye,
       cta: 'Book Red-Eye Recovery',
       variant: 'booking-row--specialty',
@@ -101,7 +101,7 @@ export default function BookingModal({ open, onClose, onOpenDiscovery, links }: 
     {
       label: 'Add-on',
       title: 'Take-Home Teeth Whitening',
-      meta: 'A simple at-home extra alongside your skyn care.',
+      meta: 'A simple at-home extra alongside your skin care.',
       href: links.teethWhitening,
       cta: 'Explore Teeth Whitening',
       variant: 'booking-row--secondary',

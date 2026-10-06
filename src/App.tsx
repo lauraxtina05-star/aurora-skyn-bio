@@ -291,7 +291,7 @@ export default function App() {
         open={virtualOpen}
         onClose={closeVirtual}
         title="Book Root to Radiance"
-        subtitle="A private 60-minute virtual skyn session."
+        subtitle="A private 60-minute virtual skin session."
         calendlyUrl={withCalendlyAccent(links.virtualCalendly)}
       />
       <CalendlyModal

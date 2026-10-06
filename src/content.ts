@@ -11,7 +11,7 @@
 export const brand = {
   name: 'Aurora Skyn',
   tagline: 'Skin health, beyond the surface.',
-  heroLede: 'I help you understand what your skyn is asking for, so you can stop guessing and start making choices that actually fit you.',
+  heroLede: 'I help you understand what your skin is asking for, so you can stop guessing and start making choices that actually fit you.',
 };
 
 export const links = {
@@ -43,7 +43,7 @@ export const mailerlite = {
   accountId: '2614510',
   formId: 'ylJLrW',
   heading: 'Learn Your Skyn',
-  message: 'Want to understand your skyn a little better? I’ll send you skincare education, practical guidance, and updates from Aurora Skyn.',
+  message: 'Want to understand your skin a little better? I’ll send you skincare education, practical guidance, and updates from Aurora Skyn.',
   // Shown instead of `message` at very narrow widths — see the
   // `.bio-subscribe-message--short` / `--full` split in styles/global.css.
   shortMessage: 'I’ll send you skincare education, practical guidance, and updates from Aurora Skyn.',
@@ -53,7 +53,7 @@ export const featured = {
   eyebrow: 'Featured experience',
   title: 'Root to Radiance',
   descriptor: 'A Private Virtual Skyn Session',
-  copy: 'For when you’re tired of guessing what your skyn needs. Before we meet, I review your questionnaire, bare-skyn photos, current routine, and products so our private session can go deeper and leave you with clear, personalized next steps.',
+  copy: 'For when you’re tired of guessing what your skin needs. Before we meet, I review your questionnaire, bare-skin photos, current routine, and products so our private session can go deeper and leave you with clear, personalized next steps.',
   duration: '60 minutes · Virtual',
   price: '$125',
   cta: 'Book Root to Radiance',
