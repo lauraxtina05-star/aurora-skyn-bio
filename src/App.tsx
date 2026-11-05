@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import BookingModal, { type BookingLinks } from '@/components/BookingModal';
-import CalModal from '@/components/CalModal';
+import CalPopup, { rootToRadianceCalAttributes } from '@/components/CalPopup';
 import CalendlyModal from '@/components/CalendlyModal';
 import MailerLite from '@/components/MailerLite';
 import { ArrowIcon, ChevronIcon } from '@/components/icons';
@@ -16,15 +16,13 @@ const bookingLinks: BookingLinks = {
 
 export default function App() {
   const [bookingOpen, setBookingOpen] = useState(false);
-  const [virtualOpen, setVirtualOpen] = useState(false);
   const [discoveryOpen, setDiscoveryOpen] = useState(false);
   const [subscribeOpen, setSubscribeOpen] = useState(false);
 
   const bookingTriggerRef = useRef<HTMLButtonElement | null>(null);
-  const virtualTriggerRef = useRef<HTMLButtonElement | null>(null);
   const discoveryTriggerRef = useRef<HTMLButtonElement | null>(null);
 
-  const anyModalOpen = bookingOpen || virtualOpen || discoveryOpen;
+  const anyModalOpen = bookingOpen || discoveryOpen;
 
   // Same single-source-of-truth scroll lock as the main site (position:fixed
   // + saved scrollY, the reliable cross-browser way to stop background
@@ -65,16 +63,6 @@ export default function App() {
   const closeBooking = useCallback(() => {
     setBookingOpen(false);
     const trigger = bookingTriggerRef.current;
-    if (trigger && document.contains(trigger)) setTimeout(() => trigger.focus(), 0);
-  }, []);
-
-  const openVirtual = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-    virtualTriggerRef.current = event.currentTarget;
-    setVirtualOpen(true);
-  }, []);
-  const closeVirtual = useCallback(() => {
-    setVirtualOpen(false);
-    const trigger = virtualTriggerRef.current;
     if (trigger && document.contains(trigger)) setTimeout(() => trigger.focus(), 0);
   }, []);
 
@@ -184,7 +172,7 @@ export default function App() {
           <p className="bio-featured-meta">
             {featured.duration} <span aria-hidden="true">·</span> {featured.price}
           </p>
-          <button type="button" className="bio-cta" onClick={openVirtual}>
+          <button type="button" className="bio-cta" {...rootToRadianceCalAttributes}>
             {featured.cta} <ArrowIcon />
           </button>
         </div>
@@ -293,12 +281,7 @@ export default function App() {
       </footer>
 
       <BookingModal open={bookingOpen} onClose={closeBooking} onOpenDiscovery={openDiscoveryFromBookingModal} links={bookingLinks} />
-      <CalModal
-        open={virtualOpen}
-        onClose={closeVirtual}
-        title="Book Root to Radiance"
-        subtitle="A private 60-minute virtual skin session."
-      />
+      <CalPopup />
       <CalendlyModal
         open={discoveryOpen}
         onClose={closeDiscovery}
