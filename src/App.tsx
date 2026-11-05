@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import BookingModal, { type BookingLinks } from '@/components/BookingModal';
+import CalModal from '@/components/CalModal';
 import CalendlyModal from '@/components/CalendlyModal';
 import MailerLite from '@/components/MailerLite';
 import { ArrowIcon, ChevronIcon } from '@/components/icons';
@@ -292,12 +293,11 @@ export default function App() {
       </footer>
 
       <BookingModal open={bookingOpen} onClose={closeBooking} onOpenDiscovery={openDiscoveryFromBookingModal} links={bookingLinks} />
-      <CalendlyModal
+      <CalModal
         open={virtualOpen}
         onClose={closeVirtual}
         title="Book Root to Radiance"
         subtitle="A private 60-minute virtual skin session."
-        calendlyUrl={withCalendlyAccent(links.virtualCalendly)}
       />
       <CalendlyModal
         open={discoveryOpen}

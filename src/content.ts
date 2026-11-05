@@ -17,7 +17,6 @@ export const brand = {
 export const links = {
   // Reused verbatim from the main site (app/page.tsx `links`) — keep these
   // two in sync if either project's URLs change.
-  virtualCalendly: 'https://calendly.com/auroraskyn/vse?back=1&month=2026-09',
   discoveryCalendly: 'https://calendly.com/auroraskyn/discoverycall?back=1&month=2026-09',
   inSpaFresha: 'https://www.fresha.com/book-now/aurora-skyn-hmifnwoh/services?lid=1297352&eid=2998182&share=true&pId=1231654',
   redEyeFresha: 'https://www.fresha.com/book-now/aurora-skyn-hmifnwoh/services?lid=1297352&eid=2998182&oiid=sv%3A28811121&share=true&pId=1231654',
