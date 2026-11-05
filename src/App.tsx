@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import BookingModal, { type BookingLinks } from '@/components/BookingModal';
-import CalPopup, { rootToRadianceCalAttributes } from '@/components/CalPopup';
-import CalendlyModal from '@/components/CalendlyModal';
+import CalPopup, { discoveryCallCalAttributes, rootToRadianceCalAttributes } from '@/components/CalPopup';
 import MailerLite from '@/components/MailerLite';
 import { ArrowIcon, ChevronIcon } from '@/components/icons';
 import { useReveal } from '@/hooks/useReveal';
-import { brand, discovery, featured, links, mailerlite, menu, withCalendlyAccent } from '@/content';
+import { brand, discovery, featured, links, mailerlite, menu } from '@/content';
 
 const bookingLinks: BookingLinks = {
   inSpa: links.inSpaFresha,
@@ -16,13 +15,11 @@ const bookingLinks: BookingLinks = {
 
 export default function App() {
   const [bookingOpen, setBookingOpen] = useState(false);
-  const [discoveryOpen, setDiscoveryOpen] = useState(false);
   const [subscribeOpen, setSubscribeOpen] = useState(false);
 
   const bookingTriggerRef = useRef<HTMLButtonElement | null>(null);
-  const discoveryTriggerRef = useRef<HTMLButtonElement | null>(null);
 
-  const anyModalOpen = bookingOpen || discoveryOpen;
+  const anyModalOpen = bookingOpen;
 
   // Same single-source-of-truth scroll lock as the main site (position:fixed
   // + saved scrollY, the reliable cross-browser way to stop background
@@ -63,20 +60,6 @@ export default function App() {
   const closeBooking = useCallback(() => {
     setBookingOpen(false);
     const trigger = bookingTriggerRef.current;
-    if (trigger && document.contains(trigger)) setTimeout(() => trigger.focus(), 0);
-  }, []);
-
-  const openDiscovery = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-    discoveryTriggerRef.current = event.currentTarget;
-    setDiscoveryOpen(true);
-  }, []);
-  const openDiscoveryFromBookingModal = useCallback(() => {
-    discoveryTriggerRef.current = bookingTriggerRef.current;
-    setDiscoveryOpen(true);
-  }, []);
-  const closeDiscovery = useCallback(() => {
-    setDiscoveryOpen(false);
-    const trigger = discoveryTriggerRef.current;
     if (trigger && document.contains(trigger)) setTimeout(() => trigger.focus(), 0);
   }, []);
 
@@ -180,7 +163,7 @@ export default function App() {
 
       <section className="bio-discovery" aria-label="Not sure where to begin?">
         <p className="bio-discovery-copy">{discovery.copy}</p>
-        <button type="button" className="bio-discovery-cta" onClick={openDiscovery}>
+        <button type="button" className="bio-discovery-cta" {...discoveryCallCalAttributes}>
           {discovery.cta} <ArrowIcon />
         </button>
       </section>
@@ -280,15 +263,8 @@ export default function App() {
         </p>
       </footer>
 
-      <BookingModal open={bookingOpen} onClose={closeBooking} onOpenDiscovery={openDiscoveryFromBookingModal} links={bookingLinks} />
+      <BookingModal open={bookingOpen} onClose={closeBooking} links={bookingLinks} />
       <CalPopup />
-      <CalendlyModal
-        open={discoveryOpen}
-        onClose={closeDiscovery}
-        title="Book Your Discovery Call"
-        subtitle="A complimentary 15-minute call so I can help you decide where to begin."
-        calendlyUrl={withCalendlyAccent(links.discoveryCalendly)}
-      />
     </div>
   );
 }

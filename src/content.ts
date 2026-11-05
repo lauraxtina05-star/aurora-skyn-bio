@@ -17,7 +17,6 @@ export const brand = {
 export const links = {
   // Reused verbatim from the main site (app/page.tsx `links`) — keep these
   // two in sync if either project's URLs change.
-  discoveryCalendly: 'https://calendly.com/auroraskyn/discoverycall?back=1&month=2026-09',
   inSpaFresha: 'https://www.fresha.com/book-now/aurora-skyn-hmifnwoh/services?lid=1297352&eid=2998182&share=true&pId=1231654',
   redEyeFresha: 'https://www.fresha.com/book-now/aurora-skyn-hmifnwoh/services?lid=1297352&eid=2998182&oiid=sv%3A28811121&share=true&pId=1231654',
   teethWhiteningFresha: 'https://www.fresha.com/book-now/aurora-skyn-hmifnwoh/services?lid=1297352&eid=2998182&oiid=sv%3A18176254&share=true&pId=1231654',
@@ -32,12 +31,6 @@ export const links = {
   // The Skyn Collective's Instagram Channel ("The Inner Glow Collective").
   skynCollective: 'https://www.instagram.com/channel/AbZda0FEKOIvYodO/' as string | null,
 };
-
-// Calendly's own (non-hacky) color customization — matches the main site.
-const CALENDLY_ACCENT_COLOR = 'c21875'; // Berry Magenta, no leading #
-export function withCalendlyAccent(url: string) {
-  return `${url}&primary_color=${CALENDLY_ACCENT_COLOR}`;
-}
 
 export const mailerlite = {
   accountId: '2614510',

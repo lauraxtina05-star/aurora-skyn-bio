@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { ArrowIcon } from '@/components/icons';
+import { discoveryCallCalAttributes } from '@/components/CalPopup';
 
 /**
  * Ported verbatim from the main Aurora Skyn site's components/booking-modal.tsx
@@ -19,12 +20,10 @@ export type BookingLinks = {
 type BookingModalProps = {
   open: boolean;
   onClose: () => void;
-  /** Opens the separate Discovery Call Calendly modal (closes this one first). */
-  onOpenDiscovery: () => void;
   links: BookingLinks;
 };
 
-export default function BookingModal({ open, onClose, onOpenDiscovery, links }: BookingModalProps) {
+export default function BookingModal({ open, onClose, links }: BookingModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   // Sync React state -> native <dialog>. showModal() gives us the focus trap,
@@ -77,8 +76,8 @@ export default function BookingModal({ open, onClose, onOpenDiscovery, links }: 
   }, [onClose]);
 
   function handleOpenDiscovery() {
+    dialogRef.current?.close();
     onClose();
-    onOpenDiscovery();
   }
 
   const options = [
@@ -166,7 +165,7 @@ export default function BookingModal({ open, onClose, onOpenDiscovery, links }: 
           Tell me a little about what you’re looking for and I’ll help you decide which Aurora Skyn experience makes the
           most sense. Depending on what you need, we can also talk about combining virtual and in-person support.
         </p>
-        <button type="button" className="booking-row-cta booking-discovery-cta" onClick={handleOpenDiscovery}>
+        <button type="button" className="booking-row-cta booking-discovery-cta" onClick={handleOpenDiscovery} {...discoveryCallCalAttributes}>
           Book a Discovery Call <ArrowIcon />
         </button>
       </div>

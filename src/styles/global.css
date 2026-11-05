@@ -214,16 +214,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; color: inheri
   .bio-footer { padding-left: 28px; padding-right: 28px; }
 }
 
-/* ============================================================
-   Booking / Calendly modal — ported verbatim from the main
-   Aurora Skyn site's app/globals.css. Includes the [open]
-   attribute-selector fix for dialog.booking-modal.calendly-modal
-   (without it, the unconditional display:flex there outscores the
-   browser's own dialog:not([open]){display:none}, leaving the
-   Calendly dialog permanently rendered even while closed — a real
-   bug that shipped and was fixed on the main site; do not drop the
-   [open] scoping if this block is ever edited).
-   ============================================================ */
+/* In-spa booking modal, shared with the main Aurora Skyn site. */
 dialog.booking-modal { position: fixed; inset: 0; margin: auto; width: min(560px, calc(100vw - 32px)); max-width: 560px; max-height: 88dvh; overflow-y: auto; -webkit-overflow-scrolling: touch; border: 0; padding: clamp(30px, 5vw, 52px); background: var(--ivory); color: var(--ink); border-radius: 10px; box-shadow: 0 40px 120px -30px rgba(16, 24, 45, 0.55); }
 dialog.booking-modal::backdrop { background: rgba(16, 24, 45, 0.66); }
 .booking-close { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 0; background: transparent; color: var(--navy); font-size: 1.7rem; line-height: 1; cursor: pointer; border-radius: 50%; transition: background-color 0.2s ease, color 0.2s ease; }
@@ -263,25 +254,6 @@ dialog.booking-modal::backdrop { background: rgba(16, 24, 45, 0.66); }
 @media (prefers-reduced-motion: no-preference) {
   dialog.booking-modal[open] { animation: booking-rise 0.3s ease both; }
   @keyframes booking-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-}
-
-dialog.booking-modal.calendly-modal[open] { display: flex; flex-direction: column; height: min(92dvh, 900px); max-height: min(92dvh, 900px); overflow: hidden; }
-.calendly-head { flex: 0 0 auto; margin-bottom: 18px; }
-.calendly-widget { flex: 1 1 auto; min-height: 0; width: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-.calendly-widget iframe { width: 100% !important; height: 100% !important; min-height: 100% !important; border: 0; display: block; }
-
-@media (max-width: 768px) {
-  dialog.booking-modal.calendly-modal[open] {
-    width: 100%;
-    max-width: 100%;
-    height: 100dvh;
-    max-height: 100dvh;
-    margin: 0;
-    inset: auto 0 0 0;
-    border-radius: 24px 24px 0 0;
-    padding: calc(20px + env(safe-area-inset-top)) 18px calc(14px + env(safe-area-inset-bottom));
-  }
-  .calendly-modal .booking-close { top: calc(12px + env(safe-area-inset-top)); }
 }
 
 /* Arrow icon nudge, shared by every button/link that uses <ArrowIcon />. */
